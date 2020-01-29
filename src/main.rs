@@ -7,8 +7,8 @@ async fn nonblocking() -> String {
 }
 
 fn blocking() -> Result<String, ()> {
-    System::new("").block_on(nonblocking());
-    Ok("Hello world!".to_owned())
+    let result = System::new("").block_on(nonblocking());
+    Ok(result)
 }
 
 async fn index() -> impl Responder {
